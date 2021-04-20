@@ -27,6 +27,31 @@ public class Question5
      */
      
     Scanner in = new Scanner(System.in);
-    
+    int len = in.nextInt();
+    int[] nums = new int[len];
+
+    for (int i = 0; i < len; i++){
+      int num = in.nextInt();
+      nums[i] = num;
+    }
+
+    int mode = 0;
+    int count = 0;
+
+    for (int i : nums){
+      int tmp_count = 0;
+      if (mode != i){
+        for (int j : nums){
+          if (i == j){
+            tmp_count++;
+          }
+        }
+        if (tmp_count > count){
+          mode = i;
+          count = tmp_count;
+        }
+      }
+    }
+    System.out.println(mode);
   }
 }
